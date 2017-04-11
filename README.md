@@ -1,23 +1,14 @@
 # makunatlib [![](https://jitpack.io/v/marckregio/makunatlib.svg)](https://jitpack.io/#marckregio/makunatlib)
+## Android Library for Templated Classes
 
-
-# Android Library for Templated Classes
-
-Abstract Classes
-
-API.java
-
-AsyncRequest.java
-
-BaseActivity.java
-
-Broadcast.java
-
-Files.java
-
-Permissions.java
-
-Preferences.java
+### Abstract Classes
+	* API.java
+	* AsyncRequest.java
+	* BaseActivity.java
+	* Broadcast.java
+	* Files.java
+	* Permissions.java
+	* Preferences.java
 	
 
 	ADD THIS TO PROJECT LEVEL BUILD.GRADLE
