@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "119582834288",
+    "project_id": "firebase-apitester"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119582834288:android:f87ed6463cbe55a2",
+        "android_client_info": {
+          "package_name": "com.marckregio.makunatlib"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGOqsWYqmVC9UVEl7MR9kTnXOE_L3wZD4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-57136182-3"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

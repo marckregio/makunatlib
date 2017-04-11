@@ -19,6 +19,8 @@ public abstract class Broadcast {
         this.context = context;
     }
 
-
+    public Context getContext(){
+        return context;
+    }
 
 }

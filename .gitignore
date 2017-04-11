@@ -40,3 +40,7 @@ captures/
 *.jks
 gradlew
 *.bat
+
+#appfolder
+app/
+apitester/
