@@ -1,7 +1,7 @@
 # makunatlib [![](https://jitpack.io/v/marckregio/makunatlib.svg)](https://jitpack.io/#marckregio/makunatlib)
 ## Android Library for Templated Classes
 
-### Abstract Classes
+	**Abstract Classes**
 	* API.java
 	* AsyncRequest.java
 	* BaseActivity.java
