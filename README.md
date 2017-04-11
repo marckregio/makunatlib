@@ -3,14 +3,19 @@ Android Library
 
 [![](https://jitpack.io/v/marckregio/makunatlib.svg)](https://jitpack.io/#marckregio/makunatlib)
 
-  allprojects {
+	ADD THIS TO PROJECT LEVEL BUILD.GRADLE
+	allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
-  
-  
-  dependencies {
-		compile 'com.github.marckregio:makunatlib:[version]'
+	
+	ADD THIS TO APP LEVEL BUILD.GRADLE
+	dependencies {
+		compile 'com.github.marckregio:makunatlib:1.0'
 	}
+	
+	
+	
+	I Love Programming :) 
