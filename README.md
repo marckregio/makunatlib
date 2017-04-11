@@ -13,7 +13,7 @@ Android Library
 	
 	ADD THIS TO APP LEVEL BUILD.GRADLE
 	dependencies {
-		compile 'com.github.marckregio:makunatlib:1.0'
+		compile 'com.github.marckregio:makunatlib:[version]'
 	}
 	
 	
