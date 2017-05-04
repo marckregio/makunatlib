@@ -1,4 +1,4 @@
-package com.marckregio.makunatlib;
+package com.marckregio.makunatlib.util;
 
 import android.Manifest;
 import android.app.Activity;
@@ -44,6 +44,23 @@ public class Permissions  {
                 activity.requestPermissions(new String [] {
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE
+                }, 1);
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+
+    public Boolean checkNetworkControlPermission(){
+        if (Build.VERSION.SDK_INT >= 23){
+            if ((ContextCompat.checkSelfPermission(activity.getApplicationContext(), Manifest.permission.ACCESS_NETWORK_STATE) == PackageManager.PERMISSION_GRANTED) ||
+                ContextCompat.checkSelfPermission(activity.getApplicationContext(), Manifest.permission.ACCESS_WIFI_STATE) == PackageManager.PERMISSION_GRANTED){
+                return true;
+            } else {
+                activity.requestPermissions(new String [] {
+                        Manifest.permission.ACCESS_NETWORK_STATE,
+                        Manifest.permission.ACCESS_WIFI_STATE
                 }, 1);
                 return false;
             }

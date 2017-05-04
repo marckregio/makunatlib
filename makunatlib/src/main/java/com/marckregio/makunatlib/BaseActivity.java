@@ -6,15 +6,13 @@ import android.content.BroadcastReceiver;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
-import com.marckregio.makunatlib.Permissions;
+import com.marckregio.makunatlib.util.Permissions;
 
 /**
  * Created by makregio on 01/02/2017.
