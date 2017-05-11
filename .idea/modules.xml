@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/apitester/apitester.iml" filepath="$PROJECT_DIR$/apitester/apitester.iml" />
       <module fileurl="file://$PROJECT_DIR$/makunatlib.iml" filepath="$PROJECT_DIR$/makunatlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/makunatlib/makunatlib-makunatlib.iml" filepath="$PROJECT_DIR$/makunatlib/makunatlib-makunatlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smediaReader/smediaReader.iml" filepath="$PROJECT_DIR$/smediaReader/smediaReader.iml" />
     </modules>
   </component>
 </project>
