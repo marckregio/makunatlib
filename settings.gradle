@@ -1,1 +1,1 @@
-include ':makunatlib' , ':apitester', ':smediaReader'
+include ':makunatlib', ':smediaReader', ':pacmag'

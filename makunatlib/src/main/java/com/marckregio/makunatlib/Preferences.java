@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
  * Created by makregio on 23/01/2017.
  */
 
-public abstract class Preferences {
+public class Preferences {
 
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
@@ -23,12 +23,20 @@ public abstract class Preferences {
     }
 
     public void putString(String field, String value){
-
+        editor.putString(field, value);
+        editor.apply();
     }
 
-    public void editString(String field, String value){
-
+    public void putInt(String field, int value){
+        editor.putInt(field, value);
+        editor.apply();
     }
+
+    public void putBoolean(String field, boolean value){
+        editor.putBoolean(field, value);
+        editor.apply();
+    }
+
 
     public String checkString(String field){
         return preferences.getString(field, "");
@@ -36,6 +44,10 @@ public abstract class Preferences {
 
     public boolean checkBoolean(String field){
         return preferences.getBoolean(field, false);
+    }
+
+    public int checkInt(String field){
+        return preferences.getInt(field, 0);
     }
 
 

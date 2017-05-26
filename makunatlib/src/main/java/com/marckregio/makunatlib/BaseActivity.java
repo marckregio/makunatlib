@@ -5,13 +5,17 @@ import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.SparseIntArray;
+import android.view.Surface;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
+import com.marckregio.makunatlib.util.Animation;
 import com.marckregio.makunatlib.util.Permissions;
 
 /**
@@ -19,8 +23,18 @@ import com.marckregio.makunatlib.util.Permissions;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
-    public BroadcastReceiver broadcastReceiver, downloadReceiver;
+    public BroadcastReceiver refreshReceiver, downloadReceiver, errorReceiver;
     public Permissions permissions;
+    public Preferences preferences;
+    public Animation animation;
+
+    public static final SparseIntArray ORIENTATIONS = new SparseIntArray();
+    static {
+        ORIENTATIONS.append(Surface.ROTATION_0, 90);
+        ORIENTATIONS.append(Surface.ROTATION_90, 0);
+        ORIENTATIONS.append(Surface.ROTATION_180, 270);
+        ORIENTATIONS.append(Surface.ROTATION_270, 180);
+    }
 
     public Tracker tracker;
 
@@ -37,13 +51,20 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         permissions = new Permissions(this);
+        preferences = new Preferences(this);
+        animation = new Animation(this);
+
+        if (getResources().getBoolean(R.bool.portrait_only)) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        registerReceiver(broadcastReceiver, new IntentFilter(getApplicationContext().getResources().getString(R.string.broadcast_refresh)));
+        registerReceiver(refreshReceiver, new IntentFilter(getApplicationContext().getResources().getString(R.string.broadcast_refresh)));
         registerReceiver(downloadReceiver, new IntentFilter(getApplicationContext().getResources().getString(R.string.broadcast_download)));
+        registerReceiver(errorReceiver, new IntentFilter(getApplicationContext().getResources().getString(R.string.broadcast_error)));
     }
 
     @Override
@@ -55,12 +76,16 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if (broadcastReceiver != null) {
-            unregisterReceiver(broadcastReceiver);
+        if (refreshReceiver != null) {
+            unregisterReceiver(refreshReceiver);
         }
 
         if (downloadReceiver != null) {
             unregisterReceiver(downloadReceiver);
+        }
+
+        if (errorReceiver != null) {
+            unregisterReceiver(errorReceiver);
         }
 
         GoogleAnalytics.getInstance(this).reportActivityStop(this);
@@ -89,7 +114,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (permissions[0] != Manifest.permission.WRITE_EXTERNAL_STORAGE && grantResults[0] != PackageManager.PERMISSION_GRANTED){
             showAlert("Storage Permission", "The app needs your storage to work.");
         } else {
-            showAlert("Storage Permission", "Download again.");
+            //showAlert("Storage Permission", "Download again.");
         }
     }
 }

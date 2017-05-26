@@ -69,6 +69,21 @@ public class Permissions  {
         }
     }
 
+    public Boolean checkCameraPermission(){
+        if (Build.VERSION.SDK_INT >= 23){
+            if (ContextCompat.checkSelfPermission(activity.getApplicationContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
+                return true;
+            } else {
+                activity.requestPermissions(new String [] {
+                        Manifest.permission.CAMERA
+                }, 1);
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+
     //REFERENCE ONLY
     private void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (permissions[0] != android.Manifest.permission.ACCESS_FINE_LOCATION && grantResults[0] != PackageManager.PERMISSION_GRANTED){
