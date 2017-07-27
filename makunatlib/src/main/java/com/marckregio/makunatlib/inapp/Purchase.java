@@ -49,6 +49,16 @@ public class Purchase {
         mSignature = signature;
     }
 
+    public Purchase(){
+
+    }
+
+    public void setItemType(String mItemType) { this.mItemType = mItemType; }
+    public void setOrderId(String mOrderId) { this.mOrderId = mOrderId; }
+    public void setSku(String mSku){ this.mSku = mSku; }
+    public void setToken(String mToken) { this.mToken = mToken; }
+    public void setPurchaseTime(long purchaseTime){ this.mPurchaseTime = purchaseTime; }
+    public void setmIsAutoRenewing(boolean mIsAutoRenewing) { this.mIsAutoRenewing = mIsAutoRenewing; }
     public String getItemType() { return mItemType; }
     public String getOrderId() { return mOrderId; }
     public String getPackageName() { return mPackageName; }

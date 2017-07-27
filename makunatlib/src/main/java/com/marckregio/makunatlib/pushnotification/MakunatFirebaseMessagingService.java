@@ -33,7 +33,7 @@ public class MakunatFirebaseMessagingService extends FirebaseMessagingService{
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(android.R.drawable.btn_star)
-                .setContentTitle("FCM Message")
+                .setContentTitle(getPackageName())
                 .setContentText(messageBody)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)

@@ -33,10 +33,15 @@ public class Permissions  {
                         Uri.parse("package:" + activity.getPackageName()));
                 /** request permission via start activity for result */
                 activity.startActivityForResult(intent, SETTINGS_REQUEST_CODE);
+                return false;
+            } else {
+                return true;
             }
+        } else {
+            return true;
         }
 
-        return true;
+
     }
 
     public Boolean checkLocationPermission() {

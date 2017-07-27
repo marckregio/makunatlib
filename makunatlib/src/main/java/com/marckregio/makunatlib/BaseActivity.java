@@ -3,11 +3,13 @@ package com.marckregio.makunatlib;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseIntArray;
@@ -15,6 +17,8 @@ import android.view.Surface;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.marckregio.makunatlib.util.Animation;
 import com.marckregio.makunatlib.util.Permissions;
 
@@ -23,10 +27,12 @@ import com.marckregio.makunatlib.util.Permissions;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
-    public BroadcastReceiver refreshReceiver, downloadReceiver, errorReceiver;
+    public BroadcastReceiver refreshReceiver, downloadReceiver, errorReceiver, notificationReceiver;
     public Permissions permissions;
     public Preferences preferences;
     public Animation animation;
+
+    public static String FRESH = "fresh_install";
 
     public static final SparseIntArray ORIENTATIONS = new SparseIntArray();
     static {
@@ -54,9 +60,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         preferences = new Preferences(this);
         animation = new Animation(this);
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+
         if (getResources().getBoolean(R.bool.portrait_only)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
+
     }
 
     @Override
@@ -65,6 +76,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         registerReceiver(refreshReceiver, new IntentFilter(getApplicationContext().getResources().getString(R.string.broadcast_refresh)));
         registerReceiver(downloadReceiver, new IntentFilter(getApplicationContext().getResources().getString(R.string.broadcast_download)));
         registerReceiver(errorReceiver, new IntentFilter(getApplicationContext().getResources().getString(R.string.broadcast_error)));
+        registerReceiver(notificationReceiver, new IntentFilter(getApplicationContext().getResources().getString(R.string.broadcast_notification)));
     }
 
     @Override
@@ -76,20 +88,31 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if (refreshReceiver != null) {
+        if (refreshReceiver != null)
             unregisterReceiver(refreshReceiver);
-        }
 
-        if (downloadReceiver != null) {
+        if (downloadReceiver != null)
             unregisterReceiver(downloadReceiver);
-        }
 
-        if (errorReceiver != null) {
+        if (errorReceiver != null)
             unregisterReceiver(errorReceiver);
-        }
+
+        if (notificationReceiver != null)
+            unregisterReceiver(notificationReceiver);
+
 
         GoogleAnalytics.getInstance(this).reportActivityStop(this);
         super.onDestroy();
+    }
+
+    public boolean isPlayStoreInstalled(Context context){
+        try {
+            context.getPackageManager()
+                    .getPackageInfo(GooglePlayServicesUtil.GOOGLE_PLAY_STORE_PACKAGE, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 
     public void showAlert(String title, String message){
