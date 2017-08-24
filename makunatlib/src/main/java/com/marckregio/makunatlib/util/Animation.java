@@ -37,7 +37,7 @@ public class Animation {
         }
     }
 
-    public void showhideAnimation(View onTopOf, final View view){
+    public void showhideAnimation(final View onTopOf, final View view){
         if (view.getVisibility() == View.INVISIBLE || view.getVisibility() == View.GONE) {
             view.setTranslationY(onTopOf.getHeight());
             view.setVisibility(View.VISIBLE);
@@ -51,12 +51,67 @@ public class Animation {
                             super.onAnimationStart(animation);
                             view.setVisibility(View.VISIBLE);
                         }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            onTopOf.setVisibility(GONE);
+                        }
                     });
         } else {
             view.animate()
                     .translationY(view.getHeight())
                     .setDuration(500)
                     .setListener(new AnimatorListenerAdapter() {
+
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+                            super.onAnimationStart(animation);
+                            onTopOf.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            view.setVisibility(View.GONE);
+                        }
+                    });
+        }
+    }
+
+    public void leftRightAnimation(final View onTopOf, final View view){
+        if (view.getVisibility() == View.INVISIBLE || view.getVisibility() == View.GONE) {
+            view.setTranslationX(onTopOf.getWidth());
+            view.setVisibility(View.VISIBLE);
+
+            view.animate()
+                    .translationX(0)
+                    .setDuration(500)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+                            super.onAnimationStart(animation);
+                            view.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            onTopOf.setVisibility(GONE);
+                        }
+                    });
+        } else {
+            view.animate()
+                    .translationX(view.getWidth())
+                    .setDuration(500)
+                    .setListener(new AnimatorListenerAdapter() {
+
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+                            super.onAnimationStart(animation);
+                            onTopOf.setVisibility(View.VISIBLE);
+                        }
+
                         @Override
                         public void onAnimationEnd(Animator animation) {
                             super.onAnimationEnd(animation);

@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -51,7 +52,7 @@ public class Unzip extends AsyncTask<String, Integer, Boolean> {
                 new File(newFile.getParent()).mkdirs();
                 if (newFile.getName().contains(".")) {
 //                    if (!newFile.isDirectory()) {
-                    if (newFile.getName().toLowerCase().endsWith(".pdf")) {
+                    if (newFile.getName().toLowerCase(Locale.getDefault()).endsWith(".pdf")) {
                         retFilePath = newFile.getParent();
                     }
                     FileOutputStream fos = new FileOutputStream(newFile);

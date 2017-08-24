@@ -19,20 +19,22 @@ public class Preferences {
     public Preferences(Context context){
         this.context = context;
         preferences = context.getSharedPreferences(context.getPackageName(), context.MODE_PRIVATE);
-        editor = preferences.edit();
     }
 
     public void putString(String field, String value){
+        editor = preferences.edit();
         editor.putString(field, value);
         editor.apply();
     }
 
     public void putInt(String field, int value){
+        editor = preferences.edit();
         editor.putInt(field, value);
         editor.apply();
     }
 
     public void putBoolean(String field, boolean value){
+        editor = preferences.edit();
         editor.putBoolean(field, value);
         editor.apply();
     }

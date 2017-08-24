@@ -19,6 +19,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 repositories {
@@ -68,6 +71,17 @@ artifacts {
     archives sourcesJar
     archives javadocJar
 }
+task deleteJar(type: Delete) {
+    delete 'libs/smediaWrapperClasses.jar'
+}
 
+task createJar(type: Copy) {
+    from('build/intermediates/bundles/release/')
+    into('libs/jars/')
+    include('classes.jar')
+    rename('classes.jar', 'smediaWrapperClasses.jar')
+}
+
+createJar.dependsOn(deleteJar, build)
 apply plugin: 'com.google.gms.google-services'
 
