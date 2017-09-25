@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 include ':makunatlib', ':gpslocator'
+=======
+include ':libraryuser', ':makunatlib'
+>>>>>>> origin/master

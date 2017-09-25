@@ -7,29 +7,22 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.android.vending.billing.IInAppBillingService;
 import com.marckregio.makunatlib.BaseActivity;
 import com.marckregio.makunatlib.Broadcast;
-import com.marckregio.makunatlib.R;
-import com.marckregio.makunatlib.http.NetworkCheck;
 import com.marckregio.makunatlib.inapp.IabBroadcastReceiver;
 import com.marckregio.makunatlib.inapp.IabHelper;
 import com.marckregio.makunatlib.inapp.IabResult;
 import com.marckregio.makunatlib.inapp.InappRequest;
 import com.marckregio.makunatlib.inapp.Inventory;
 import com.marckregio.makunatlib.inapp.Purchase;
-import com.marckregio.makunatlib.inapp.SkuDetails;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 /**

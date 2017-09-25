@@ -4,8 +4,18 @@ apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.marckregio'
 
 android {
+
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+    signingConfigs {
+        /* TODO(developer): Configure to sign app with a release key for testing.
+        release {
+            storeFile file('path/to/release/signing/key')
+            keyAlias 'release_key_alias'
+            keyPassword "${password}"
+            storePassword "${password}"
+        }*/
+    }
     defaultConfig {
         //applicationId "com.marckregio.makunatlib"
         minSdkVersion 19
@@ -22,6 +32,11 @@ android {
     lintOptions {
         abortOnError false
     }
+    sourceSets {
+        main {
+            aidl.srcDirs = ['src/main/aidl']
+        }
+    }
 }
 
 repositories {
@@ -31,8 +46,8 @@ repositories {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.3.1'
-    //compile 'com.squareup.okhttp3:okhttp:3.4.1'
-    compile 'com.google.android.gms:play-services-analytics:10.0.1'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.google.android.gms:play-services-analytics:11.0.4'
     compile 'com.google.firebase:firebase-core:10.0.1'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
     compile 'com.android.support:design:25.3.1'
@@ -40,7 +55,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.facebook.android:facebook-android-sdk:4.23.0'
     compile files('libs/twitter4j-core-4.0.4.jar')
-    compile files('libs/ksoap2-3.6.2.jar')
 }
 
 android.libraryVariants.all { variant ->
@@ -83,6 +97,6 @@ task createJar(type: Copy) {
     rename('classes.jar', 'smediaWrapperClasses.jar')
 }
 
-createJar.dependsOn(deleteJar, build)
+//createJar.dependsOn(deleteJar, build)
 apply plugin: 'com.google.gms.google-services'
 
