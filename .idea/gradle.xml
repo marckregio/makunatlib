@@ -8,7 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/libraryuser" />
+            <option value="$PROJECT_DIR$/gpslocator" />
             <option value="$PROJECT_DIR$/makunatlib" />
           </set>
         </option>

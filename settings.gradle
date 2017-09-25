@@ -1,1 +1,1 @@
-include ':makunatlib', ':libraryuser'
+include ':makunatlib', ':gpslocator'

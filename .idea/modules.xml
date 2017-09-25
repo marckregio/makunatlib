@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/libraryuser/libraryuser.iml" filepath="$PROJECT_DIR$/libraryuser/libraryuser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gpslocator/gpslocator.iml" filepath="$PROJECT_DIR$/gpslocator/gpslocator.iml" />
       <module fileurl="file://$PROJECT_DIR$/makunatlib.iml" filepath="$PROJECT_DIR$/makunatlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/makunatlib/makunatlib-makunatlib.iml" filepath="$PROJECT_DIR$/makunatlib/makunatlib-makunatlib.iml" />
     </modules>
