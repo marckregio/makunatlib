@@ -1,5 +1,2 @@
-<<<<<<< HEAD
-include ':makunatlib', ':gpslocator'
-=======
-include ':libraryuser', ':makunatlib'
->>>>>>> origin/master
+include ':makunatlib-main', ':makunatlib-firebase', ':makunatlib-ui'
+
