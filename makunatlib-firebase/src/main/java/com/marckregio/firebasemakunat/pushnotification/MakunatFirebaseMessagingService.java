@@ -1,4 +1,4 @@
-package com.marckregio.makunatlib.pushnotification;
+package com.marckregio.firebasemakunat.pushnotification;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;

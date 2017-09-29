@@ -1,4 +1,4 @@
-package com.marckregio.makunatlib.pushnotification;
+package com.marckregio.firebasemakunat.pushnotification;
 
 import com.google.firebase.iid.FirebaseInstanceIdService;
 
