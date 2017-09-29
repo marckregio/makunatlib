@@ -92,5 +92,5 @@ task createJar(type: Copy) {
 }
 
 //createJar.dependsOn(deleteJar, build)
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
 

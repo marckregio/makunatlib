@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "880110205527",
+    "firebase_url": "https://makunatlib-firebase.firebaseio.com",
+    "project_id": "makunatlib-firebase",
+    "storage_bucket": "makunatlib-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880110205527:android:396b4ebe59704228",
+        "android_client_info": {
+          "package_name": "com.marckregio.firebasemakunat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880110205527-cs60sva9o83khor0h3cevmq580v9t63a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClBKpGeXg3vbWKm-DWt5IBnyk6oTFLhTQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
