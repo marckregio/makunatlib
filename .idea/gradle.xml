@@ -8,9 +8,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/makunatlib-firebase" />
+            <option value="$PROJECT_DIR$/maklib-firebase" />
+            <option value="$PROJECT_DIR$/maklib-ui" />
             <option value="$PROJECT_DIR$/makunatlib-main" />
-            <option value="$PROJECT_DIR$/makunatlib-ui" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -16,9 +16,7 @@ import android.util.SparseIntArray;
 import android.view.Surface;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.marckregio.makunatlib.util.Animation;
 import com.marckregio.makunatlib.util.Permissions;
 
@@ -42,15 +40,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         ORIENTATIONS.append(Surface.ROTATION_270, 180);
     }
 
-    public Tracker tracker;
 
-    synchronized public Tracker getDefaultTracker(){
-        if (tracker == null){
-            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
-            tracker = analytics.newTracker(R.xml.global_tracker);
-        }
-        return tracker;
-    }
 
 
     @Override
